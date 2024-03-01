@@ -90,23 +90,23 @@ Pequeña presentacion a la tienda con un poco de informacion sobre la misma
 
 Aqui se van a concentrar todos los productos añadidos por el administrador, con varios filtros para que el cliente pueda encontrar segun sus intereses
 
-![Tienda](capturas/tienda.png)
+![Tienda](https://github.com/AntonioMartinSosa/ProyectoShoepp_AntonioMartinSosa/blob/main/Capturas/tienda.png)
 
 ### Carrito de la compra
 
 Aqui estaran todos los productos que el usuario a querido añadir
-![Carrito](capturas/carrito.png)
+![Carrito](https://github.com/AntonioMartinSosa/ProyectoShoepp_AntonioMartinSosa/blob/main/Capturas/carrito.png)
 
 ### Mi cuenta
 
 Informacion de la cuenta con los datos del usuario los cuales puede actualizar asi como revias informacion de sus pedidos y su direccion predeterminada
-![Cuenta](capturas/cuenta.png)
+![Cuenta](https://github.com/AntonioMartinSosa/ProyectoShoepp_AntonioMartinSosa/blob/main/Capturas/cuenta.png)
 
 ### ADMIN PORTAL
 
 Portal para usuarios con rol de administradores en el cual gestionar los productos que se van a vender desde la navbar en el boton de menu PRODUCTOS
-![LISTARPRODUCTOS](capturas/listarproductos.png)
-![AÑADIRPRODUCTOS](capturas/añadirproductos.png)
+![LISTARPRODUCTOS](https://github.com/AntonioMartinSosa/ProyectoShoepp_AntonioMartinSosa/blob/main/Capturas/listarproductos.png)
+![AÑADIRPRODUCTOS](https://github.com/AntonioMartinSosa/ProyectoShoepp_AntonioMartinSosa/blob/main/Capturas/a%C3%B1adirproductos.png)
 
 ### Errores y Contacto con el autor
 
