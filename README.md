@@ -84,7 +84,7 @@ Y en la parte del admin tenemos lo siguiente:
 
 Pequeña presentacion a la tienda con un poco de informacion sobre la misma
 
-![Home]([capturas/home.png](https://github.com/AntonioMartinSosa/ProyectoShoepp_AntonioMartinSosa/blob/main/Capturas/home.png))
+![Home](https://github.com/AntonioMartinSosa/ProyectoShoepp_AntonioMartinSosa/blob/main/Capturas/home.png)
 
 ### Tienda
 
