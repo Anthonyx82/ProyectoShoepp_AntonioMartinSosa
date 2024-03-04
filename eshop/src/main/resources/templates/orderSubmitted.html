@@ -11,19 +11,19 @@
       <div class="card-body">
         <div class="text-center py-3">
           <i data-feather="check-circle" class="text-success" width="48" height="48"></i>
-          <h1>Thank you.</h1>
-          <p>Your order has been placed and will be processed as soon as possible.</p>
+          <h1>Gracias.</h1>
+          <p>Tu pedido a sido completado con exito.</p>
           <p class="mb-0">
-            <span class="text-muted">Order ID: </span>
+            <span class="text-muted">ID PEDIDO: </span>
             <span class="text-info">#ORD<span th:text="${order.id}"></span></span>
           </p>
           <p>
-            <span class="text-muted">Amount: </span>
+            <span class="text-muted">Cantidad: </span>
             <span class="text-info">$ <span th:text="${order.orderTotal}"></span></span>
           </p>
-          <p>The estimated delivery date is <span th:text="${#dates.format(order.shippingDate, 'dd-MMM-yyyy')}"></span></p>
-          <a th:href="@{/store}" class="btn btn-info rounded mb-3">CONTINUE SHOPPING</a>
-          <a th:href="@{/order-detail?order=}+${order.id}" class="btn btn-primary rounded mb-3">VIEW ORDER</a>
+          <p>Fecha estamida de entrega <span th:text="${#dates.format(order.shippingDate, 'dd-MMM-yyyy')}"></span></p>
+          <a th:href="@{/store}" class="btn btn-info rounded mb-3">CONTINUA COMPRANDO</a>
+          <a th:href="@{/order-detail?order=}+${order.id}" class="btn btn-primary rounded mb-3">DETALLES DEL PEDIDO</a>
         </div>
       </div>
     </div>  

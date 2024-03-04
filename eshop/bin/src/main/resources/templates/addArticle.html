@@ -9,17 +9,17 @@
     <form th:action="@{/article/add}" method="post" enctype="multipart/form-data">
       <fieldset>
         <legend class="center-block">
-          New Article Information
+          Informacion producto
         </legend>
               
         <div class="form-group row">
-          <label for="title" class="col-2 col-form-label text-right">Title</label>
+          <label for="title" class="col-2 col-form-label text-right">Nombre</label>
           <div class="col-6">
             <input type="text" class="form-control" id="title" name="title">
           </div>
         </div>
         <div class="form-group row">
-          <label for="category" class="col-2 col-form-label text-right">Category</label>
+          <label for="category" class="col-2 col-form-label text-right">Categoria</label>
           <div class="col-6">
             <input type="text" class="form-control" id="categories" name="category" data-role="tagsinput">
           </div>
@@ -29,7 +29,7 @@
           </div>          
         </div>
         <div class="form-group row">
-          <label for="brand" class="col-2 col-form-label text-right">Sizes</label>
+          <label for="brand" class="col-2 col-form-label text-right">Tallas</label>
           <div class="col-6">
             <input type="text" class="form-control" id="sizes" name="size" data-role="tagsinput">
           </div>
@@ -38,7 +38,7 @@
           </div>          
         </div>
         <div class="form-group row">
-          <label for="brand" class="col-2 col-form-label text-right">Brand</label>
+          <label for="brand" class="col-2 col-form-label text-right">Marcas</label>
           <div class="col-6">
             <input type="text" class="form-control" id="brands" name="brand" data-role="tagsinput">
           </div>
@@ -48,7 +48,7 @@
           </div>
         </div>
         <div class="form-group row">
-          <label for="price" class="col-2 col-form-label text-right">Price</label>
+          <label for="price" class="col-2 col-form-label text-right">Precio</label>
           <div class="col-6 input-group">
             <div class="input-group-prepend">
               <span class="input-group-text" id="basic-addon1">$</span>
@@ -59,7 +59,7 @@
         </div>
         
         <div class="form-group row">
-          <label for="stock" class="col-2 col-form-label text-right">Available stock</label>
+          <label for="stock" class="col-2 col-form-label text-right">Cantidades en stock</label>
           <div class="col-6">
             <input th:value="${article.stock}" type="number"
                         name="stock" class="form-control" id="stock"
@@ -68,7 +68,7 @@
         </div>       
         
         <div class="form-group row">
-          <label for="picture" class="col-2 col-form-label text-right">Article image link</label>
+          <label for="picture" class="col-2 col-form-label text-right">Link imagen</label>
           <div class="col-6">
             <input type="text" class="form-control" id="picture" name="picture">
           </div>
@@ -76,8 +76,8 @@
         
         <div class="form-group row">
           <div class="offset-2 col-6">
-          	<button type="submit" class="btn btn-success">Add Article</button>
-              <a class="btn btn-danger" th:href="@{/admin}">Cancel</a>
+          	<button type="submit" class="btn btn-success">Añadir articulo</button>
+              <a class="btn btn-danger" th:href="@{/admin}">Cancelar</a>
           </div>
         </div>
     </fieldset>

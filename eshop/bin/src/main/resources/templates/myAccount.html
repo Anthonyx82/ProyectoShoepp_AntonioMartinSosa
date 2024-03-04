@@ -32,7 +32,7 @@
                       <i data-feather="lock"></i> 
                       <input required="required" type="password" class="form-control" placeholder="Password" name="password"
                              th:classappend="${param.error} ? is-invalid" >
-                      <div class="invalid-feedback">Incorrect username or password</div>  
+                      <div class="invalid-feedback">Nombre de usuario o contraseña incorrectos</div>  
                     </div>                    
                   </div>
                   <div class="form-group d-flex justify-content-between">
@@ -40,10 +40,9 @@
                       <input type="checkbox"
                         class="custom-control-input" id="loginRemember" name="remember-me">
                       <label class="custom-control-label"
-                        for="loginRemember">Remember me</label>
+                        for="loginRemember">Recuerdame</label>
                     </div>
-                    <a href="#" class="text-primary small reset">Forgot
-                        password ?</a>
+                    <a href="#" class="text-primary small reset">Olvidastes la contraseña?</a>
                   </div>
                   <button type="submit"
                     class="btn btn-primary btn-block">LOGIN</button>
@@ -64,7 +63,7 @@
                       <i data-feather="mail"></i> 
                       <input required="required" type="email" class="form-control" th:classappend="${emailExists} ? is-invalid" 
                              name="email" placeholder="Email address" th:value="${email}">
-                      <div class="invalid-feedback">Email is already in use</div>                 
+                      <div class="invalid-feedback">Email en uso</div>                 
                     </div>
                   </div>
                   <div class="form-group">
@@ -72,7 +71,7 @@
                       <i data-feather="user"></i> 
                       <input required="required" type="text" class="form-control" th:classappend="${usernameExists} ? is-invalid"
                              placeholder="Username" name="username" th:value="${username}">
-                      <div class="invalid-feedback">Username is already in use</div>                 
+                      <div class="invalid-feedback">Nombre de usuario en uso</div>                 
                       
                     </div>
                   </div>

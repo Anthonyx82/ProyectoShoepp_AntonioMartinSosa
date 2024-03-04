@@ -17,10 +17,10 @@
             <small class="text-secondary" th:text="'Last seen '+${#dates.format(#dates.createNow(), 'MMM dd, yyyy')}"></small>       
           </div>
           <div class="list-group list-group-flush">
-            <a th:href="@{/my-profile}" class="list-group-item list-group-item-action"><i data-feather="user" class="mr-3"></i> Profile</a>
-            <a th:href="@{/my-orders}" class="list-group-item list-group-item-action active"><i data-feather="shopping-bag" class="mr-3"></i> Orders</a>
-            <a th:href="@{/my-address}" class="list-group-item list-group-item-action"><i data-feather="map" class="mr-3"></i> Address</a>
-            <a th:href="@{/logout}" class="list-group-item list-group-item-action text-danger"><i data-feather="log-out" class="mr-3"></i> Logout</a>
+            <a th:href="@{/my-profile}" class="list-group-item list-group-item-action"><i data-feather="user" class="mr-3"></i> Perfil</a>
+            <a th:href="@{/my-orders}" class="list-group-item list-group-item-action active"><i data-feather="shopping-bag" class="mr-3"></i> Pedidos</a>
+            <a th:href="@{/my-address}" class="list-group-item list-group-item-action"><i data-feather="map" class="mr-3"></i> Direccion</a>
+            <a th:href="@{/logout}" class="list-group-item list-group-item-action text-danger"><i data-feather="log-out" class="mr-3"></i> Cerrar sesion</a>
           </div>
         </div>
       </div>
@@ -28,15 +28,15 @@
        <div class="col mt-3 mt-md-0">
           <div class="card">
             <div class="card-body">
-              <h3>My Orders</h3><hr>
+              <h3>Mis pedidos</h3><hr>
               <div class="table-responsive">
                 <table class="table table-hover" data-addclass-on-xs="table-sm">
                   <thead class="thead-light">
                     <tr>
-                      <th scope="col">Order ID</th>
-                      <th scope="col">Date</th>
+                      <th scope="col">ID pedido</th>
+                      <th scope="col">Fecha</th>
                       <th scope="col" class="text-right">Total</th>
-                      <th scope="col" class="text-center">Status</th>
+                      <th scope="col" class="text-center">Estado</th>
                     </tr>
                   </thead>
                   <tbody>
