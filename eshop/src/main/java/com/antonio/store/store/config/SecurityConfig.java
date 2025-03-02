@@ -38,19 +38,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .csrf().disable().cors().disable()
                 .formLogin()
-                .loginPage("/login")  // Aquí sigue sin el prefijo
+                .loginPage("/login")
                 .failureUrl("/login?error")
-                .defaultSuccessUrl("/my-profile", true) // Redirige sin /springboot
+                .defaultSuccessUrl("/springboot/my-profile", true) // Ahora con /springboot
                 .permitAll()
                 .and()
-                .logout()
-                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                .logoutSuccessUrl("/?logout")
+                .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .logoutSuccessUrl("/springboot/?logout") // También corregido
                 .deleteCookies("remember-me")
                 .permitAll()
                 .and()
                 .rememberMe().key("aSecretKey");
     }
+
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
