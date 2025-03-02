@@ -111,7 +111,7 @@ Portal para usuarios con rol de administradores en el cual gestionar los product
 ### Errores y Contacto con el autor
 
 A dia de hoy no se a detectado ningun error en la app, igualmente cualquier error, problema, peticion o consejo estaria super agradecido de escucharlo, podras contactarme por mi mail:
-- alumno01_smr1_20@iescastelar.com
+- antoniomartinmanzanares2004@gmail.com
 
 ### Recursos utilizados
 
