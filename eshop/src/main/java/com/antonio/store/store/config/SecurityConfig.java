@@ -38,14 +38,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .csrf().disable().cors().disable()
                 .formLogin()
-                .loginPage("/springboot/login")
-                .failureUrl("/springboot/login?error")
-                .defaultSuccessUrl("/springboot/my-profile", true) // Redirige después de login exitoso
+                .loginPage("/login")  // Aquí sigue sin el prefijo
+                .failureUrl("/login?error")
+                .defaultSuccessUrl("/my-profile", true) // Redirige sin /springboot
                 .permitAll()
                 .and()
                 .logout()
-                .logoutRequestMatcher(new AntPathRequestMatcher("/springboot/logout"))
-                .logoutSuccessUrl("/springboot/?logout")
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .logoutSuccessUrl("/?logout")
                 .deleteCookies("remember-me")
                 .permitAll()
                 .and()
