@@ -1,4 +1,4 @@
-package com.nico.store.store;
+package com.antonio.store.store;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

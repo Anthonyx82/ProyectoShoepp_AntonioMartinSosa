@@ -1,4 +1,4 @@
-package com.nico.store.store.repository;
+package com.antonio.store.store.repository;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
