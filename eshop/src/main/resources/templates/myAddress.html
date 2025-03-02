@@ -1,69 +1,77 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.w3.org./1999/xhtml">
-<head th:replace="common/header :: common-header" />
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 
+<head th:replace="common/header :: common-header"></head>
 
 <body class="d-flex flex-column">
-  <div th:replace="common/header :: navbar"> </div>
+<div th:replace="common/header :: navbar"></div>
 
-  <div class="container page-content">
-    <div class="row">
-      
-       <div class="col-md-4 col-lg-3">
-        <div class="card">
-          <div class="card-body text-center">
-            <img src="/image/user/user.png" width="100" height="100" alt="User" class="rounded-circle mb-3">
-            <h5 class="bold mb-0" th:text="${#strings.capitalize(user.username)}"></h5>
-            <small class="text-secondary" th:text="'Last seen '+${#dates.format(#dates.createNow(), 'MMM dd, yyyy')}"></small>       
-          </div>
-          <div class="list-group list-group-flush">
-            <a th:href="@{/my-profile}" class="list-group-item list-group-item-action"><i data-feather="user" class="mr-3"></i> Perfil</a>
-            <a th:href="@{/my-orders}" class="list-group-item list-group-item-action"><i data-feather="shopping-bag" class="mr-3"></i> Pedidos</a>
-            <a th:href="@{/my-address}" class="list-group-item list-group-item-action active"><i data-feather="map" class="mr-3"></i> Direccion</a>
-            <a th:href="@{/logout}" class="list-group-item list-group-item-action text-danger"><i data-feather="log-out" class="mr-3"></i> Cerrar sesion</a>
-          </div>
+<div class="container page-content">
+  <div class="row">
+
+    <!-- Panel lateral de usuario -->
+    <div class="col-md-4 col-lg-3">
+      <div class="card">
+        <div class="card-body text-center">
+          <img th:src="@{${baseUrl} + '/image/user/user.png'}" width="100" height="100" alt="User" class="rounded-circle mb-3">
+          <h5 class="bold mb-0" th:text="${#strings.capitalize(user.username)}"></h5>
+          <small class="text-secondary" th:text="'Last seen ' + ${#dates.format(#dates.createNow(), 'MMM dd, yyyy')}"></small>
+        </div>
+        <div class="list-group list-group-flush">
+          <a th:href="@{${baseUrl} + '/my-profile'}" class="list-group-item list-group-item-action">
+            <i data-feather="user" class="mr-3"></i> Perfil
+          </a>
+          <a th:href="@{${baseUrl} + '/my-orders'}" class="list-group-item list-group-item-action">
+            <i data-feather="shopping-bag" class="mr-3"></i> Pedidos
+          </a>
+          <a th:href="@{${baseUrl} + '/my-address'}" class="list-group-item list-group-item-action active">
+            <i data-feather="map" class="mr-3"></i> Dirección
+          </a>
+          <a th:href="@{${baseUrl} + '/logout'}" class="list-group-item list-group-item-action text-danger">
+            <i data-feather="log-out" class="mr-3"></i> Cerrar sesión
+          </a>
         </div>
       </div>
-      
-       <div class="col mt-3 mt-md-0">
-          <div class="card">
-            <div class="card-body">
-              <h3>Mi direccion</h3><hr>
-              <form th:action="@{/update-user-address}" method="post">
-                <div class="form-row">
-                  <div class="form-group col-12">
-                    <label for="billingAddress">Direccion</label>
-                    <input type="text" class="form-control" th:name="streetAddress" th:value="${user?.address?.streetAddress}">
-                  </div>
-                  <div class="form-group col-6 col-sm-5">
-                    <label for="billingCountry">Pais</label>
-                    <input type="text" class="form-control" th:name="country" th:value="${user?.address?.country}">
-                    
-                  </div>
-                  <div class="form-group col-6 col-sm-5">
-                    <label for="billingCity">Ciudad</label>
-                    <input type="text" class="form-control"   th:name="city" th:value="${user?.address?.city}">
-                  </div>
-                  <div class="form-group col-3 col-sm-2">
-                    <label for="billingZip">Codigo Postal</label>
-                    <input type="number" class="form-control" th:name="zipCode" th:value="${user?.address?.zipCode}">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <button type="submit" class="btn btn-primary">ACTUALIZAR DIRECCION</button>
-                </div>
-              </form>
-             
-            </div>
-          </div>
-        </div>
-        
     </div>
-  </div> <!--  end container -->
-  
-  <div th:replace="common/header :: footer"> </div>
-  
-  
-  <div th:replace="common/header :: body-scripts"> </div>
+
+    <!-- Formulario de dirección -->
+    <div class="col mt-3 mt-md-0">
+      <div class="card">
+        <div class="card-body">
+          <h3>Mi dirección</h3>
+          <hr>
+          <form th:action="@{${baseUrl} + '/update-user-address'}" method="post">
+            <div class="form-row">
+              <div class="form-group col-12">
+                <label for="billingAddress">Dirección</label>
+                <input type="text" class="form-control" id="billingAddress" name="streetAddress" th:value="${user?.address?.streetAddress}">
+              </div>
+              <div class="form-group col-6 col-sm-5">
+                <label for="billingCountry">País</label>
+                <input type="text" class="form-control" id="billingCountry" name="country" th:value="${user?.address?.country}">
+              </div>
+              <div class="form-group col-6 col-sm-5">
+                <label for="billingCity">Ciudad</label>
+                <input type="text" class="form-control" id="billingCity" name="city" th:value="${user?.address?.city}">
+              </div>
+              <div class="form-group col-3 col-sm-2">
+                <label for="billingZip">Código Postal</label>
+                <input type="number" class="form-control" id="billingZip" name="zipCode" th:value="${user?.address?.zipCode}">
+              </div>
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary">ACTUALIZAR DIRECCIÓN</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div> <!--  end container -->
+
+<div th:replace="common/header :: footer"></div>
+<div th:replace="common/header :: body-scripts"></div>
+
 </body>
 </html>
