@@ -89,7 +89,7 @@ public class AccountController {
 		model.addAttribute("username", user.getUsername());
 		boolean invalidFields = false;
 		if (bindingResults.hasErrors()) {
-			return "redirect:/login";
+			return "redirect:/springboot/login";
 		}
 		if (userService.findByUsername(user.getUsername()) != null) {
 			redirectAttributes.addFlashAttribute("usernameExists", true);
@@ -100,11 +100,11 @@ public class AccountController {
 			invalidFields = true;
 		}
 		if (invalidFields) {
-			return "redirect:/login";
+			return "redirect:/springboot/login";
 		}
 		user = userService.createUser(user.getUsername(), password,  user.getEmail(), Arrays.asList("ROLE_USER"));
 		userSecurityService.authenticateUser(user.getUsername());
-		return "redirect:/my-profile";
+		return "redirect:/springboot/my-profile";
 	}
 
 	@RequestMapping(value="/update-user-info", method=RequestMethod.POST)
