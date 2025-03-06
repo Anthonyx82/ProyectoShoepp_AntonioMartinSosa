@@ -40,11 +40,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .loginPage("/login")
                 .failureUrl("/login?error")
-                .defaultSuccessUrl("/my-profile", true) // Ahora con /springboot
+                .defaultSuccessUrl("/my-profile", true)
                 .permitAll()
                 .and()
                 .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                .logoutSuccessUrl("/?logout") // También corregido
+                .logoutSuccessUrl("/?logout")
                 .deleteCookies("remember-me")
                 .permitAll()
                 .and()
