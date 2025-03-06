@@ -81,31 +81,31 @@ public class AccountController {
 		return "redirect:/my-address";
 	}
 
-	@RequestMapping(value="/new-user", method=RequestMethod.POST)
-	public String newUserPost(@Valid @ModelAttribute("user") User user, BindingResult bindingResults,
-							  @ModelAttribute("new-password") String password,
-							  RedirectAttributes redirectAttributes, Model model) {
-		model.addAttribute("email", user.getEmail());
-		model.addAttribute("username", user.getUsername());
-		boolean invalidFields = false;
-		if (bindingResults.hasErrors()) {
-			return "redirect:/springboot/login";
-		}
-		if (userService.findByUsername(user.getUsername()) != null) {
-			redirectAttributes.addFlashAttribute("usernameExists", true);
-			invalidFields = true;
-		}
-		if (userService.findByEmail(user.getEmail()) != null) {
-			redirectAttributes.addFlashAttribute("emailExists", true);
-			invalidFields = true;
-		}
-		if (invalidFields) {
-			return "redirect:/springboot/login";
-		}
-		user = userService.createUser(user.getUsername(), password,  user.getEmail(), Arrays.asList("ROLE_USER"));
-		userSecurityService.authenticateUser(user.getUsername());
-		return "redirect:/springboot/my-profile";
-	}
+        @RequestMapping(value="/new-user", method=RequestMethod.POST)
+        public String newUserPost(@Valid @ModelAttribute("user") User user, BindingResult bindingResults,
+                                                          @ModelAttribute("new-password") String password,
+                                                          RedirectAttributes redirectAttributes, Model model) {
+                model.addAttribute("email", user.getEmail());
+                model.addAttribute("username", user.getUsername());
+                boolean invalidFields = false;
+                if (bindingResults.hasErrors()) {
+                        return "redirect:/login";
+                }
+                if (userService.findByUsername(user.getUsername()) != null) {
+                        redirectAttributes.addFlashAttribute("usernameExists", true);
+                        invalidFields = true;
+                }
+                if (userService.findByEmail(user.getEmail()) != null) {
+                        redirectAttributes.addFlashAttribute("emailExists", true);
+                        invalidFields = true;
+                }
+                if (invalidFields) {
+                        return "redirect:/login";
+                }
+                user = userService.createUser(user.getUsername(), password,  user.getEmail(), Arrays.asList("ROLE_USER"));
+                userSecurityService.authenticateUser(user.getUsername());
+                return "redirect:/my-profile";
+        }
 
 	@RequestMapping(value="/update-user-info", method=RequestMethod.POST)
 	public String updateUserInfo( @ModelAttribute("user") User user,
