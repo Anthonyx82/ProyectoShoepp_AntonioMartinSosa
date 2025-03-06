@@ -39,12 +39,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable().cors().disable()
                 .formLogin()
                 .loginPage("/login")
-                .failureUrl("/springboot/login?error")
-                .defaultSuccessUrl("/springboot/my-profile", true)
+                .failureUrl("/login?error")
+                .defaultSuccessUrl("/my-profile", true) // Ahora con /springboot
                 .permitAll()
                 .and()
                 .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                .logoutSuccessUrl("/springboot/?logout")
+                .logoutSuccessUrl("/?logout") // También corregido
                 .deleteCookies("remember-me")
                 .permitAll()
                 .and()
