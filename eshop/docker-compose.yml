@@ -4,16 +4,16 @@ services:
     container_name: mysql_container
     restart: always
     environment:
-      MYSQL_DATABASE: eshop
-      MYSQL_USER: admin
-      MYSQL_PASSWORD: admin
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     ports:
       - "3306:3306"
     volumes:
       - mysql_data:/var/lib/mysql
     healthcheck:
-      test: [ "CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-u", "root", "--password=root" ]
+      test: [ "CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-u", "root", "--password=${MYSQL_ROOT_PASSWORD}" ]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -28,18 +28,16 @@ services:
       db:
         condition: service_healthy
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/eshop?useSSL=false&allowPublicKeyRetrieval=true
-      SPRING_DATASOURCE_USERNAME: admin
-      SPRING_DATASOURCE_PASSWORD: admin
+      SPRING_DATASOURCE_URL: ${SPRING_DATASOURCE_URL}
+      SPRING_DATASOURCE_USERNAME: ${SPRING_DATASOURCE_USERNAME}
+      SPRING_DATASOURCE_PASSWORD: ${SPRING_DATASOURCE_PASSWORD}
     networks:
       - web
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.springboot.rule=Host(`anthonyx82.ddns.net`) && PathPrefix(`/springboot`)"
+      - "traefik.http.routers.springboot.rule=Host(`${TRAEFIK_HOST}`) && PathPrefix(`${TRAEFIK_PATH_PREFIX}`)"
       - "traefik.http.routers.springboot.entrypoints=websecure"
-      - "traefik.http.routers.springboot.tls.certresolver=myresolver"
-      - "traefik.http.middlewares.springboot-stripprefix.stripprefix.prefixes=/springboot"
-      - "traefik.http.routers.springboot.middlewares=springboot-stripprefix"
+      - "traefik.http.routers.springboot.tls.certresolver=${TRAEFIK_CERT_RESOLVER}"
 
 networks:
   web:
