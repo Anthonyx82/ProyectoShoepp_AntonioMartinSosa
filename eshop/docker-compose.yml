@@ -35,7 +35,7 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.springboot.rule=Host(`${TRAEFIK_HOST}`) && PathPrefix(`${TRAEFIK_PATH_PREFIX}`)"
       - "traefik.http.routers.springboot.entrypoints=websecure"
-      - "traefik.http.routers.springboot.tls.certresolver=${TRAEFIK_CERT_RESOLVER}"
+      - "traefik.http.routers.springboot.tls.certresolver=myresolver"
 
 networks:
   web:

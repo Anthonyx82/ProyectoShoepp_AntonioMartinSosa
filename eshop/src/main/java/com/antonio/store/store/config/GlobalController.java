@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 public class GlobalController {
     @ModelAttribute("baseUrl")
     public String baseUrl() {
-        return "https://anthonyx82.ddns.net/springboot";
+        return "https://web82.es/springboot";
     }
 }
